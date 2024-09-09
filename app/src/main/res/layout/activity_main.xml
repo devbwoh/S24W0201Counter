@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/txt_count"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:gravity="center"
         android:background="#ff0"
         android:padding="16dp"
         android:layout_margin="16dp"
         android:text="0"
         android:textSize="70sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_add"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="증가"
-            />
-        <Button
-            android:id="@+id/btn_sub"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="감소"
-            />
-    </LinearLayout>
-
+        android:text="증가"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_sub"
+        app:layout_constraintTop_toBottomOf="@id/txt_count"
+        app:layout_constraintBottom_toTopOf="@id/btn_reset"
+        />
+    <Button
+        android:id="@+id/btn_sub"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="감소"
+        app:layout_constraintStart_toEndOf="@id/btn_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_add"
+        />
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="초기화"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
